@@ -49,7 +49,7 @@ export async function createCity(city) {
 }
 
 
-export async function updatecity(city) {
+export async function updateCity(city) {
   const { body } = await client
     .from('cities')
     .update([city])

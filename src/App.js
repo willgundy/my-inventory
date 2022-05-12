@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getUser, logout } from './services/fetch-utils';
 import './App.css';
-import { Router, NavLink, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, NavLink, Switch, Route, Redirect } from 'react-router-dom';
 import AuthPage from './AuthPage';
 import Map from './Map';
 import CityPage from './CityPage';
@@ -36,32 +36,32 @@ function App() {
         {user && 
           <header>
             <NavLink exact to={'/map'}>Map</NavLink>
-            <NavLink exact to={'/create-city'}>Create City</NavLink>
+            <NavLink exact to={'/createCity'}>Create City</NavLink>
             <button onClick={handleLogout}>Logout</button>
           </header>}
 
         {/* Main body of the single page app. Includes declarations for auth page, map page, create city and update city */}
         <main>
           <Switch>
-            <Route exact path={'/'}>
+            <Route exact path="/">
               {user
-                ? <Redirect to={'/map'}/>
+                ? <Redirect to="/map"/>
                 : <AuthPage setUser={setUser}/>}
             </Route>
-            <Route exact path={'/map'}>
+            <Route exact path="/map">
               {user
                 ? <Map />
-                : <Redirect to={'/'}/>}
+                : <Redirect to="/"/>}
             </Route>
-            <Route exact path={'/city/:id'}>
+            <Route exact path="/city/:id">
               {user
                 ? <CityPage />
-                : <Redirect to={'/'}/>}
+                : <Redirect to="/"/>}
             </Route>
-            <Route exact path={'/createCity'}>
+            <Route exact path="/createCity">
               {user
                 ? <CreateCity />
-                : <Redirect to={'/'}/>}
+                : <Redirect to="/"/>}
             </Route>
           </Switch>
         </main>

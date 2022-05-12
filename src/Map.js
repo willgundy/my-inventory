@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { getCities } from './services/fetch-utils';
 import City from './City';
+import ReactMapGL from 'react-map-gl';
 
 export default function Map() {
-  const [cities, setCities] = useState('');
+  const [cities, setCities] = useState([]);
 
   useEffect(() => {
     async function getCitiesInfo() {
@@ -13,6 +14,8 @@ export default function Map() {
     }
     getCitiesInfo();
   }, []);
+
+  console.log(cities);
 
   return (
     <div>
