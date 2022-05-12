@@ -23,6 +23,7 @@ export default function CityPage() {
       setCityInForm(cityInfo);
     }
     getCityInfo();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   async function handleSubmit(e) {
