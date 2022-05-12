@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import { getUser, logout } from './services/fetch-utils';
-
 import './App.css';
-import { Router, NavLink, Switch, Route } from 'react-router-dom';
-import { Redirect } from 'react-router-dom';
+import { Router, NavLink, Switch, Route, Redirect } from 'react-router-dom';
+import AuthPage from './AuthPage';
+import Map from './Map';
+import CityPage from './CityPage';
+import CreateCity from './CreateCity';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -58,7 +60,7 @@ function App() {
             </Route>
             <Route exact path={'/createCity'}>
               {user
-                ? <Createcity />
+                ? <CreateCity />
                 : <Redirect to={'/'}/>}
             </Route>
           </Switch>
