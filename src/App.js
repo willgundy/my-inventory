@@ -1,10 +1,70 @@
 import { useState, useEffect } from 'react';
+import { getUser, logout } from './services/fetch-utils';
 
 import './App.css';
+import { Router, NavLink, Switch, Route } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 function App() {
-  return (
+  const [user, setUser] = useState(null);
 
+  useEffect(() => {
+    async function getUserOnLoad() {
+      const user = await getUser();
+
+      if (user) {
+        setUser(user);
+      }
+    }
+
+    getUserOnLoad();
+  }, []);
+
+  async function handleLogout() {
+    await logout();
+
+    setUser(null);
+  }
+
+  return (
+    <Router>
+      <div className='App'>
+
+        {/* Adding a header if the user is logged in */}
+        {user && 
+          <header>
+            <NavLink exact to={'/map'}>Map</NavLink>
+            <NavLink exact to={'/create-city'}>Create City</NavLink>
+            <button onClick={handleLogout}>Logout</button>
+          </header>}
+
+        {/* Main body of the single page app. Includes declarations for auth page, map page, create city and update city */}
+        <main>
+          <Switch>
+            <Route exact path={'/'}>
+              {user
+                ? <Redirect to={'/map'}/>
+                : <AuthPage setUser={setUser}/>}
+            </Route>
+            <Route exact path={'/map'}>
+              {user
+                ? <Map />
+                : <Redirect to={'/'}/>}
+            </Route>
+            <Route exact path={'/city/:id'}>
+              {user
+                ? <CityPage />
+                : <Redirect to={'/'}/>}
+            </Route>
+            <Route exact path={'/createCity'}>
+              {user
+                ? <Createcity />
+                : <Redirect to={'/'}/>}
+            </Route>
+          </Switch>
+        </main>
+      </div>
+    </Router>
   );
 }
 
