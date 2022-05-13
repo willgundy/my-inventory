@@ -29,7 +29,7 @@ export default function Map() {
     //   mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
     // >
     // </ReactMapGL>
-    <div>
+    <div className='flex-row-centered'>
       {cities.map((city, i) => 
         <City key={i} city={city} />
       )}

@@ -35,8 +35,10 @@ function App() {
         {/* Adding a header if the user is logged in */}
         {user && 
           <header>
-            <NavLink exact to={'/map'}>Map</NavLink>
-            <NavLink exact to={'/createCity'}>Create City</NavLink>
+            <div>
+              <NavLink className='navLink' exact to={'/map'}>Map</NavLink>
+              <NavLink className='navLink' exact to={'/createCity'}>Create City</NavLink>
+            </div>
             <button onClick={handleLogout}>Logout</button>
           </header>}
 

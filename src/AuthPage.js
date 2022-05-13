@@ -22,9 +22,10 @@ export default function AuthPage({ setUser }) {
   }
 
   return (
-    <div>
-      <h2>Sign In</h2>
-      <form onSubmit={handleSignIn}>
+    <div className='flex-column-centered auth-page'>
+      <h1>City Tracker</h1>
+      <form onSubmit={handleSignIn} className='auth'>
+        <h2>Sign In</h2>
         <label>
           Email:
           <input required type={'email'} onChange={e => setEmail(e.target.value)} />
@@ -35,8 +36,8 @@ export default function AuthPage({ setUser }) {
         </label>
         <button>Sign In</button>
       </form>
-      <h2>Sign Up</h2>
-      <form onSubmit={handleSignUp}>
+      <form onSubmit={handleSignUp} className='auth'>
+        <h2>Sign Up</h2>
         <label>
           Email:
           <input required type={'email'} onChange={e => setEmail(e.target.value)} />

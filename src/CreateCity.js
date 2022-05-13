@@ -7,7 +7,7 @@ export default function CreateCity() {
   const history = useHistory();
   const [cityInForm, setCityInForm] = useState({
     name: '',
-    state: '',
+    state: 'OR - Oregon',
     coolThings: {},
     lat: 0,
     long: 0, 
@@ -21,7 +21,7 @@ export default function CreateCity() {
   }
 
   return (
-    <div className='createCity'>
+    <div className='flex-column-centered'>
       <form onSubmit={handleSubmit}>
         <h1>Add a City</h1>
         <label>
@@ -30,7 +30,7 @@ export default function CreateCity() {
         </label>
         <label>
           State:
-          <select required
+          <select required value={cityInForm.state}
             onChange={(e) => setCityInForm({ ...cityInForm, state: e.target.value })}
           >
             {states.map((state, i) => <option key={i} value={state}>{state}</option>)}

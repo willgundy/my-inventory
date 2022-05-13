@@ -33,7 +33,7 @@ export default function CityPage() {
   }
 
   return (
-    <div className='createCity'>
+    <div className='flex-column-centered'>
       <form onSubmit={handleSubmit}>
         <h1>Edit Info for {cityInForm.name}</h1>
         <label>
