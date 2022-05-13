@@ -1,38 +1,103 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  background-color: #0A2342;
+  color: #C7EF00;
   min-height: 100vh;
+}
+
+.flex-column-centered {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+
+.flex-row-centered {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input {
+  margin-left: 10px;
+}
+
+form, .cityCard {
+  width: 20vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  border: 2px dotted #C7EF00;
+  margin: 5px;
+  margin-top: 40px;
+}
+
+form label {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+header {
+  background-color: #C7EF00;
+  color: #0A2342;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+.navLink {
+  text-decoration: none;
+  margin: 0px 40px;
+  font-weight: bolder;
+  color: #0A2342;
+}
+
+.navLink:hover {
+  transform: scale(1.3);
+  cursor: pointer;
+}
+
+button {
+  border: 2px solid #0A2342;
+  font-weight: bolder;
+  background-color: white;
+  text-transform: uppercase;
+  padding: 5px 10px;
+}
+
+button:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+header button {
+  margin-right: 40px;
+}
+
+.cityCard {
+  width: 20vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  margin: 5px;
+  margin-top: 40px;
+  color: #C7EF00;
+  text-decoration: none;
+  height: 25vh;
+}
+
+.cityCard:hover {
+  transform: scale(1.1);
+  cursor: pointer;
 }
